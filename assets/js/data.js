@@ -86,6 +86,57 @@ const aiToolsDatabase = [
         rank: 9,
         traffic: '13.4M'
     },
+    {
+        id: 'deepseek',
+        name: 'DeepSeek',
+        category: 'assistant',
+        pricing: 'free',
+        url: 'https://chat.deepseek.com',
+        description: {
+            en: 'Free AI chatbot with excellent performance, growing +88% in 2025',
+            pt: 'Chatbot de IA gratuito com excelente desempenho, crescendo +88% em 2025',
+            es: 'Chatbot de IA gratuito con excelente rendimiento, creciendo +88% en 2025'
+        },
+        free: true,
+        paid: false,
+        price: 'Free',
+        rank: 15,
+        traffic: '5M'
+    },
+    {
+        id: 'poe',
+        name: 'Poe',
+        category: 'assistant',
+        pricing: 'freemium',
+        url: 'https://poe.com',
+        description: {
+            en: 'Access multiple AI chatbots (GPT-4, Claude, Gemini) in one platform',
+            pt: 'Acesse múltiplos chatbots de IA (GPT-4, Claude, Gemini) em uma plataforma',
+            es: 'Accede a múltiples chatbots de IA (GPT-4, Claude, Gemini) en una plataforma'
+        },
+        free: true,
+        paid: true,
+        price: '$19.99/month',
+        rank: 18,
+        traffic: '3.5M'
+    },
+    {
+        id: 'you',
+        name: 'You.com',
+        category: 'assistant',
+        pricing: 'freemium',
+        url: 'https://you.com',
+        description: {
+            en: 'AI-powered search engine with chat and research capabilities',
+            pt: 'Motor de busca com IA com recursos de chat e pesquisa',
+            es: 'Motor de búsqueda con IA con capacidades de chat e investigación'
+        },
+        free: true,
+        paid: true,
+        price: '$15/month',
+        rank: 22,
+        traffic: '2.8M'
+    },
 
     // PROGRAMMING
     {
@@ -138,6 +189,74 @@ const aiToolsDatabase = [
         price: '$7/month',
         rank: 27,
         traffic: '1.8M'
+    },
+    {
+        id: 'codeium',
+        name: 'Codeium',
+        category: 'programming',
+        pricing: 'free',
+        url: 'https://codeium.com',
+        description: {
+            en: 'Free AI code completion and chat, alternative to GitHub Copilot',
+            pt: 'Completação de código e chat com IA gratuito, alternativa ao GitHub Copilot',
+            es: 'Completación de código y chat con IA gratuito, alternativa a GitHub Copilot'
+        },
+        free: true,
+        paid: false,
+        price: 'Free',
+        rank: 30,
+        traffic: '1.2M'
+    },
+    {
+        id: 'tabnine',
+        name: 'Tabnine',
+        category: 'programming',
+        pricing: 'freemium',
+        url: 'https://tabnine.com',
+        description: {
+            en: 'AI code completion with privacy-focused on-device processing',
+            pt: 'Completação de código com IA focada em privacidade com processamento local',
+            es: 'Completación de código con IA enfocada en privacidad con procesamiento local'
+        },
+        free: true,
+        paid: true,
+        price: '$12/month',
+        rank: 32,
+        traffic: '1M'
+    },
+    {
+        id: 'windsurf',
+        name: 'Windsurf',
+        category: 'programming',
+        pricing: 'freemium',
+        url: 'https://codeium.com/windsurf',
+        description: {
+            en: 'New AI-powered code editor with advanced flow state features',
+            pt: 'Novo editor de código com IA com recursos avançados de fluxo',
+            es: 'Nuevo editor de código con IA con características avanzadas de flujo'
+        },
+        free: true,
+        paid: true,
+        price: '$15/month',
+        rank: 35,
+        traffic: '800K'
+    },
+    {
+        id: 'codewhisperer',
+        name: 'Amazon CodeWhisperer',
+        category: 'programming',
+        pricing: 'free',
+        url: 'https://aws.amazon.com/codewhisperer',
+        description: {
+            en: 'Amazon\'s free AI code generator with AWS integration',
+            pt: 'Gerador de código com IA gratuito da Amazon com integração AWS',
+            es: 'Generador de código con IA gratuito de Amazon con integración AWS'
+        },
+        free: true,
+        paid: false,
+        price: 'Free',
+        rank: 40,
+        traffic: '600K'
     },
 
     // WRITING / COPYWRITING
@@ -209,6 +328,74 @@ const aiToolsDatabase = [
         rank: 7,
         traffic: '38.4M'
     },
+    {
+        id: 'writesonic',
+        name: 'Writesonic',
+        category: 'writing',
+        pricing: 'freemium',
+        url: 'https://writesonic.com',
+        description: {
+            en: 'AI writing assistant for articles, blogs, and marketing copy',
+            pt: 'Assistente de escrita com IA para artigos, blogs e copy de marketing',
+            es: 'Asistente de escritura con IA para artículos, blogs y copy de marketing'
+        },
+        free: true,
+        paid: true,
+        price: '$19/month',
+        rank: 45,
+        traffic: '450K'
+    },
+    {
+        id: 'notion-ai',
+        name: 'Notion AI',
+        category: 'writing',
+        pricing: 'freemium',
+        url: 'https://notion.so/product/ai',
+        description: {
+            en: 'AI writing and productivity features integrated into Notion',
+            pt: 'Recursos de escrita e produtividade com IA integrados ao Notion',
+            es: 'Funciones de escritura y productividad con IA integradas en Notion'
+        },
+        free: true,
+        paid: true,
+        price: '$10/month',
+        rank: 25,
+        traffic: '2.2M'
+    },
+    {
+        id: 'wordtune',
+        name: 'Wordtune',
+        category: 'writing',
+        pricing: 'freemium',
+        url: 'https://wordtune.com',
+        description: {
+            en: 'AI writing companion for rewriting and improving your text',
+            pt: 'Companheiro de escrita com IA para reescrever e melhorar seu texto',
+            es: 'Compañero de escritura con IA para reescribir y mejorar tu texto'
+        },
+        free: true,
+        paid: true,
+        price: '$9.99/month',
+        rank: 38,
+        traffic: '700K'
+    },
+    {
+        id: 'rytr',
+        name: 'Rytr',
+        category: 'writing',
+        pricing: 'freemium',
+        url: 'https://rytr.me',
+        description: {
+            en: 'Affordable AI writing assistant for content creation',
+            pt: 'Assistente de escrita com IA acessível para criação de conteúdo',
+            es: 'Asistente de escritura con IA asequible para creación de contenido'
+        },
+        free: true,
+        paid: true,
+        price: '$9/month',
+        rank: 50,
+        traffic: '320K'
+    },
 
     // DESIGN / IMAGES
     {
@@ -279,6 +466,91 @@ const aiToolsDatabase = [
         rank: 6,
         traffic: '41.7M'
     },
+    {
+        id: 'flux',
+        name: 'Flux AI',
+        category: 'design',
+        pricing: 'freemium',
+        url: 'https://flux.ai',
+        description: {
+            en: 'New powerful AI image generator with photorealistic results',
+            pt: 'Novo gerador de imagens com IA poderoso com resultados fotorrealistas',
+            es: 'Nuevo generador de imágenes con IA potente con resultados fotorrealistas'
+        },
+        free: true,
+        paid: true,
+        price: '$10/month',
+        rank: 20,
+        traffic: '3M'
+    },
+    {
+        id: 'ideogram',
+        name: 'Ideogram',
+        category: 'design',
+        pricing: 'freemium',
+        url: 'https://ideogram.ai',
+        description: {
+            en: 'AI image generator excellent at rendering text in images',
+            pt: 'Gerador de imagens com IA excelente em renderizar texto em imagens',
+            es: 'Generador de imágenes con IA excelente en renderizar texto en imágenes'
+        },
+        free: true,
+        paid: true,
+        price: '$8/month',
+        rank: 26,
+        traffic: '2M'
+    },
+    {
+        id: 'firefly',
+        name: 'Adobe Firefly',
+        category: 'design',
+        pricing: 'freemium',
+        url: 'https://firefly.adobe.com',
+        description: {
+            en: 'Adobe\'s AI image generator integrated with Creative Cloud',
+            pt: 'Gerador de imagens com IA da Adobe integrado com Creative Cloud',
+            es: 'Generador de imágenes con IA de Adobe integrado con Creative Cloud'
+        },
+        free: true,
+        paid: true,
+        price: '$4.99/month',
+        rank: 29,
+        traffic: '1.5M'
+    },
+    {
+        id: 'photoroom',
+        name: 'PhotoRoom',
+        category: 'design',
+        pricing: 'freemium',
+        url: 'https://photoroom.com',
+        description: {
+            en: 'AI photo editor for background removal and product photography',
+            pt: 'Editor de fotos com IA para remoção de fundo e fotografia de produtos',
+            es: 'Editor de fotos con IA para eliminación de fondo y fotografía de productos'
+        },
+        free: true,
+        paid: true,
+        price: '$9.99/month',
+        rank: 33,
+        traffic: '950K'
+    },
+    {
+        id: 'recraft',
+        name: 'Recraft',
+        category: 'design',
+        pricing: 'freemium',
+        url: 'https://recraft.ai',
+        description: {
+            en: 'AI vector art and design generator with brand consistency',
+            pt: 'Gerador de arte vetorial e design com IA com consistência de marca',
+            es: 'Generador de arte vectorial y diseño con IA con consistencia de marca'
+        },
+        free: true,
+        paid: true,
+        price: '$12/month',
+        rank: 36,
+        traffic: '750K'
+    },
 
     // VIDEO
     {
@@ -305,32 +577,32 @@ const aiToolsDatabase = [
         pricing: 'freemium',
         url: 'https://runwayml.com',
         description: {
-            en: 'AI video generation and editing platform with Gen-2',
-            pt: 'Plataforma de geração e edição de vídeo com IA com Gen-2',
-            es: 'Plataforma de generación y edición de video con IA con Gen-2'
+            en: 'AI video generation and editing platform with Gen-4',
+            pt: 'Plataforma de geração e edição de vídeo com IA com Gen-4',
+            es: 'Plataforma de generación y edición de video con IA con Gen-4'
         },
         free: true,
         paid: true,
         price: '$12/month',
-        rank: 26,
-        traffic: '1.9M'
+        rank: 19,
+        traffic: '3.2M'
     },
     {
         id: 'invideo',
-        name: 'InVideo',
+        name: 'InVideo AI',
         category: 'video',
         pricing: 'freemium',
         url: 'https://invideo.io',
         description: {
-            en: 'AI video creation platform with text-to-video capabilities',
-            pt: 'Plataforma de criação de vídeo com IA com capacidades de texto para vídeo',
-            es: 'Plataforma de creación de video con IA con capacidades de texto a video'
+            en: 'AI video creation from text prompts with templates',
+            pt: 'Criação de vídeos com IA a partir de prompts de texto com templates',
+            es: 'Creación de videos con IA desde prompts de texto con plantillas'
         },
         free: true,
         paid: true,
         price: '$20/month',
-        rank: 25,
-        traffic: '2M'
+        rank: 21,
+        traffic: '2.9M'
     },
     {
         id: 'synthesia',
@@ -339,15 +611,83 @@ const aiToolsDatabase = [
         pricing: 'paid',
         url: 'https://synthesia.io',
         description: {
-            en: 'AI video generation with realistic avatars and voices',
-            pt: 'Geração de vídeo com IA com avatares e vozes realistas',
-            es: 'Generación de video con IA con avatares y voces realistas'
+            en: 'AI video platform with avatars and voiceovers in 140+ languages',
+            pt: 'Plataforma de vídeo com IA com avatares e narrações em 140+ idiomas',
+            es: 'Plataforma de video con IA con avatares y narraciones en 140+ idiomas'
         },
         free: false,
         paid: true,
         price: '$22/month',
+        rank: 31,
+        traffic: '1.1M'
+    },
+    {
+        id: 'pika',
+        name: 'Pika',
+        category: 'video',
+        pricing: 'freemium',
+        url: 'https://pika.art',
+        description: {
+            en: 'AI video generator with creative effects and animations',
+            pt: 'Gerador de vídeo com IA com efeitos criativos e animações',
+            es: 'Generador de video con IA con efectos creativos y animaciones'
+        },
+        free: true,
+        paid: true,
+        price: '$10/month',
+        rank: 34,
+        traffic: '900K'
+    },
+    {
+        id: 'descript',
+        name: 'Descript',
+        category: 'video',
+        pricing: 'freemium',
+        url: 'https://descript.com',
+        description: {
+            en: 'AI video and audio editor - edit videos by editing text',
+            pt: 'Editor de vídeo e áudio com IA - edite vídeos editando texto',
+            es: 'Editor de video y audio con IA - edita videos editando texto'
+        },
+        free: true,
+        paid: true,
+        price: '$12/month',
+        rank: 37,
+        traffic: '720K'
+    },
+    {
+        id: 'heygen',
+        name: 'HeyGen',
+        category: 'video',
+        pricing: 'freemium',
+        url: 'https://heygen.com',
+        description: {
+            en: 'AI video generator with customizable avatars and voices',
+            pt: 'Gerador de vídeo com IA com avatares e vozes personalizáveis',
+            es: 'Generador de video con IA con avatares y voces personalizables'
+        },
+        free: true,
+        paid: true,
+        price: '$29/month',
         rank: 39,
-        traffic: '591.3K'
+        traffic: '650K'
+    },
+    {
+        id: 'pictory',
+        name: 'Pictory',
+        category: 'video',
+        pricing: 'freemium',
+        url: 'https://pictory.ai',
+        description: {
+            en: 'AI video creation from scripts, articles, and blog posts',
+            pt: 'Criação de vídeos com IA a partir de scripts, artigos e posts de blog',
+            es: 'Creación de videos con IA desde scripts, artículos y posts de blog'
+        },
+        free: true,
+        paid: true,
+        price: '$19/month',
+        rank: 42,
+        traffic: '550K'
     },
 
     // AUDIO / MUSIC / VOICE
@@ -358,36 +698,36 @@ const aiToolsDatabase = [
         pricing: 'freemium',
         url: 'https://elevenlabs.io',
         description: {
-            en: 'Realistic AI voice generation and text-to-speech',
-            pt: 'Geração de voz com IA realista e texto para fala',
-            es: 'Generación de voz con IA realista y texto a voz'
+            en: 'AI voice cloning and text-to-speech with realistic voices',
+            pt: 'Clonagem de voz e texto para fala com IA com vozes realistas',
+            es: 'Clonación de voz y texto a voz con IA con voces realistas'
         },
         free: true,
         paid: true,
         price: '$5/month',
-        rank: 19,
-        traffic: '3.5M'
+        rank: 17,
+        traffic: '4.2M'
     },
     {
         id: 'suno',
-        name: 'Suno',
+        name: 'Suno AI',
         category: 'audio',
         pricing: 'freemium',
         url: 'https://suno.ai',
         description: {
-            en: 'AI music generation from text prompts',
-            pt: 'Geração de música com IA a partir de prompts de texto',
-            es: 'Generación de música con IA a partir de prompts de texto'
+            en: 'AI music generator - create full songs with vocals from text',
+            pt: 'Gerador de música com IA - crie músicas completas com vocais a partir de texto',
+            es: 'Generador de música con IA - crea canciones completas con vocales desde texto'
         },
         free: true,
         paid: true,
         price: '$10/month',
         rank: 16,
-        traffic: '4M'
+        traffic: '4.5M'
     },
     {
         id: 'murf',
-        name: 'Murf.ai',
+        name: 'Murf AI',
         category: 'audio',
         pricing: 'freemium',
         url: 'https://murf.ai',
@@ -399,8 +739,76 @@ const aiToolsDatabase = [
         free: true,
         paid: true,
         price: '$19/month',
+        rank: 41,
+        traffic: '580K'
+    },
+    {
+        id: 'udio',
+        name: 'Udio',
+        category: 'audio',
+        pricing: 'freemium',
+        url: 'https://udio.com',
+        description: {
+            en: 'AI music creation with high-quality vocals and instrumentals',
+            pt: 'Criação de música com IA com vocais e instrumentais de alta qualidade',
+            es: 'Creación de música con IA con vocales e instrumentales de alta calidad'
+        },
+        free: true,
+        paid: true,
+        price: '$10/month',
+        rank: 43,
+        traffic: '520K'
+    },
+    {
+        id: 'soundraw',
+        name: 'Soundraw',
+        category: 'audio',
+        pricing: 'freemium',
+        url: 'https://soundraw.io',
+        description: {
+            en: 'AI music generator with customizable royalty-free tracks',
+            pt: 'Gerador de música com IA com faixas personalizáveis livres de royalties',
+            es: 'Generador de música con IA con pistas personalizables libres de regalías'
+        },
+        free: true,
+        paid: true,
+        price: '$16.99/month',
+        rank: 46,
+        traffic: '420K'
+    },
+    {
+        id: 'aiva',
+        name: 'AIVA',
+        category: 'audio',
+        pricing: 'freemium',
+        url: 'https://aiva.ai',
+        description: {
+            en: 'AI music composition for soundtracks and background music',
+            pt: 'Composição de música com IA para trilhas sonoras e música de fundo',
+            es: 'Composición de música con IA para bandas sonoras y música de fondo'
+        },
+        free: true,
+        paid: true,
+        price: '$11/month',
         rank: 49,
-        traffic: '352.1K'
+        traffic: '350K'
+    },
+    {
+        id: 'boomy',
+        name: 'Boomy',
+        category: 'audio',
+        pricing: 'freemium',
+        url: 'https://boomy.com',
+        description: {
+            en: 'Create and monetize AI-generated music in seconds',
+            pt: 'Crie e monetize música gerada por IA em segundos',
+            es: 'Crea y monetiza música generada por IA en segundos'
+        },
+        free: true,
+        paid: true,
+        price: '$9.99/month',
+        rank: 51,
+        traffic: '280K'
     },
 
     // PRODUCTIVITY / BUSINESS
@@ -411,15 +819,15 @@ const aiToolsDatabase = [
         pricing: 'freemium',
         url: 'https://gamma.app',
         description: {
-            en: 'AI-powered presentation and document creation',
-            pt: 'Criação de apresentações e documentos com IA',
-            es: 'Creación de presentaciones y documentos con IA'
+            en: 'AI-powered presentation maker with beautiful templates',
+            pt: 'Criador de apresentações com IA com templates bonitos',
+            es: 'Creador de presentaciones con IA con plantillas hermosas'
         },
         free: true,
         paid: true,
-        price: '$10/month',
-        rank: 17,
-        traffic: '3.9M'
+        price: '$8/month',
+        rank: 13,
+        traffic: '7.8M'
     },
     {
         id: 'zapier',
@@ -428,15 +836,15 @@ const aiToolsDatabase = [
         pricing: 'freemium',
         url: 'https://zapier.com',
         description: {
-            en: 'Workflow automation with AI-powered integrations',
-            pt: 'Automação de fluxo de trabalho com integrações com IA',
-            es: 'Automatización de flujo de trabajo con integraciones con IA'
+            en: 'Automation platform connecting 5000+ apps with AI features',
+            pt: 'Plataforma de automação conectando 5000+ apps com recursos de IA',
+            es: 'Plataforma de automatización conectando 5000+ apps con funciones de IA'
         },
         free: true,
         paid: true,
         price: '$19.99/month',
-        rank: 15,
-        traffic: '4.4M'
+        rank: 12,
+        traffic: '8.5M'
     },
     {
         id: 'notebooklm',
@@ -445,15 +853,66 @@ const aiToolsDatabase = [
         pricing: 'free',
         url: 'https://notebooklm.google.com',
         description: {
-            en: 'Google\'s AI research assistant for notes and documents',
-            pt: 'Assistente de pesquisa com IA do Google para notas e documentos',
-            es: 'Asistente de investigación con IA de Google para notas y documentos'
+            en: 'Google\'s AI note-taking and research assistant',
+            pt: 'Assistente de anotações e pesquisa com IA do Google',
+            es: 'Asistente de notas e investigación con IA de Google'
         },
         free: true,
         paid: false,
         price: 'Free',
-        rank: 42,
-        traffic: '473.6K'
+        rank: 44,
+        traffic: '480K'
+    },
+    {
+        id: 'clickup',
+        name: 'ClickUp AI',
+        category: 'productivity',
+        pricing: 'freemium',
+        url: 'https://clickup.com',
+        description: {
+            en: 'Project management platform with AI writing and automation',
+            pt: 'Plataforma de gestão de projetos com escrita e automação com IA',
+            es: 'Plataforma de gestión de proyectos con escritura y automatización con IA'
+        },
+        free: true,
+        paid: true,
+        price: '$7/month',
+        rank: 47,
+        traffic: '380K'
+    },
+    {
+        id: 'otter',
+        name: 'Otter.ai',
+        category: 'productivity',
+        pricing: 'freemium',
+        url: 'https://otter.ai',
+        description: {
+            en: 'AI meeting transcription and note-taking assistant',
+            pt: 'Assistente de transcrição de reuniões e anotações com IA',
+            es: 'Asistente de transcripción de reuniones y notas con IA'
+        },
+        free: true,
+        paid: true,
+        price: '$8.33/month',
+        rank: 53,
+        traffic: '250K'
+    },
+    {
+        id: 'fireflies',
+        name: 'Fireflies.ai',
+        category: 'productivity',
+        pricing: 'freemium',
+        url: 'https://fireflies.ai',
+        description: {
+            en: 'AI meeting assistant for recording and transcription',
+            pt: 'Assistente de reuniões com IA para gravação e transcrição',
+            es: 'Asistente de reuniones con IA para grabación y transcripción'
+        },
+        free: true,
+        paid: true,
+        price: '$10/month',
+        rank: 54,
+        traffic: '220K'
     },
 
     // TRANSLATION
@@ -464,15 +923,49 @@ const aiToolsDatabase = [
         pricing: 'freemium',
         url: 'https://deepl.com',
         description: {
-            en: 'High-quality AI translation in 31 languages',
-            pt: 'Tradução com IA de alta qualidade em 31 idiomas',
-            es: 'Traducción con IA de alta calidad en 31 idiomas'
+            en: 'Most accurate AI translator with natural-sounding results',
+            pt: 'Tradutor de IA mais preciso com resultados naturais',
+            es: 'Traductor de IA más preciso con resultados naturales'
         },
         free: true,
         paid: true,
-        price: '$8.74/month',
+        price: '$7.49/month',
         rank: 3,
         traffic: '167M'
+    },
+    {
+        id: 'google-translate',
+        name: 'Google Translate',
+        category: 'translation',
+        pricing: 'free',
+        url: 'https://translate.google.com',
+        description: {
+            en: 'Free translation service supporting 100+ languages',
+            pt: 'Serviço de tradução gratuito suportando 100+ idiomas',
+            es: 'Servicio de traducción gratuito que soporta 100+ idiomas'
+        },
+        free: true,
+        paid: false,
+        price: 'Free',
+        rank: 8,
+        traffic: '35M'
+    },
+    {
+        id: 'reverso',
+        name: 'Reverso',
+        category: 'translation',
+        pricing: 'freemium',
+        url: 'https://reverso.net',
+        description: {
+            en: 'AI translation with context examples and grammar checking',
+            pt: 'Tradução com IA com exemplos de contexto e verificação gramatical',
+            es: 'Traducción con IA con ejemplos de contexto y verificación gramatical'
+        },
+        free: true,
+        paid: true,
+        price: '$6.49/month',
+        rank: 55,
+        traffic: '180K'
     },
 
     // RESEARCH / ACADEMIC
@@ -490,12 +983,63 @@ const aiToolsDatabase = [
         free: true,
         paid: true,
         price: '$8.99/month',
-        rank: 29,
-        traffic: '1.5M'
+        rank: 56,
+        traffic: '150K'
+    },
+    {
+        id: 'elicit',
+        name: 'Elicit',
+        category: 'research',
+        pricing: 'freemium',
+        url: 'https://elicit.org',
+        description: {
+            en: 'AI research assistant for analyzing academic papers',
+            pt: 'Assistente de pesquisa com IA para analisar artigos acadêmicos',
+            es: 'Asistente de investigación con IA para analizar artículos académicos'
+        },
+        free: true,
+        paid: true,
+        price: '$10/month',
+        rank: 57,
+        traffic: '120K'
+    },
+    {
+        id: 'scite',
+        name: 'Scite',
+        category: 'research',
+        pricing: 'freemium',
+        url: 'https://scite.ai',
+        description: {
+            en: 'Smart citations tool showing how research has been cited',
+            pt: 'Ferramenta de citações inteligentes mostrando como pesquisas foram citadas',
+            es: 'Herramienta de citas inteligentes que muestra cómo se ha citado la investigación'
+        },
+        free: true,
+        paid: true,
+        price: '$20/month',
+        rank: 58,
+        traffic: '100K'
+    },
+    {
+        id: 'scholarcy',
+        name: 'Scholarcy',
+        category: 'research',
+        pricing: 'freemium',
+        url: 'https://scholarcy.com',
+        description: {
+            en: 'AI tool to summarize and extract key information from papers',
+            pt: 'Ferramenta de IA para resumir e extrair informações-chave de artigos',
+            es: 'Herramienta de IA para resumir y extraer información clave de artículos'
+        },
+        free: true,
+        paid: true,
+        price: '$7.99/month',
+        rank: 59,
+        traffic: '80K'
     }
 ];
 
-// Categories Configuration
+// Categories
 const categories = {
     assistant: {
         icon: '💬',
