@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ['php82', 'nginx']
+
+[phases.build]
+cmds = ['echo "Build phase - no compilation needed for PHP"']
+
+[start]
+cmd = 'nginx -c /app/nginx.conf'

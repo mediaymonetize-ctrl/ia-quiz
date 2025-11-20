@@ -1,0 +1,37 @@
+{
+    "welcome": {
+        "title": "Encontre Sua Ferramenta de IA Perfeita",
+        "subtitle": "Responda 2 perguntas rápidas e descubra as melhores ferramentas de IA para suas necessidades",
+        "feature1": "Rápido e Fácil",
+        "feature2": "Opções Gratuitas e Pagas",
+        "feature3": "Resultados Personalizados",
+        "start": "Iniciar Quiz"
+    },
+    "step1": {
+        "title": "Para que você deseja usar IA?",
+        "subtitle": "Escolha seu objetivo principal"
+    },
+    "step2": {
+        "title": "Qual sua preferência de orçamento?",
+        "subtitle": "Escolha seu modelo de preço preferido"
+    },
+    "results": {
+        "title": "Suas Ferramentas de IA Recomendadas",
+        "subtitle": "Com base em suas preferências, aqui estão as melhores ferramentas para você",
+        "restart": "🔄 Fazer Quiz Novamente",
+        "visit": "Visitar Site",
+        "rank": "Ranking",
+        "traffic": "Visitas Mensais",
+        "free_plan": "Plano Gratuito Disponível",
+        "paid_plan": "Plano Pago",
+        "price": "Preço"
+    },
+    "common": {
+        "back": "← Voltar",
+        "next": "Próximo →",
+        "loading": "Carregando..."
+    },
+    "progress": {
+        "step": "Etapa {{current}} de {{total}}"
+    }
+}

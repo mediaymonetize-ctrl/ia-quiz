@@ -1,0 +1,37 @@
+{
+    "welcome": {
+        "title": "Find Your Perfect AI Tool",
+        "subtitle": "Answer 2 quick questions and discover the best AI tools for your needs",
+        "feature1": "Quick & Easy",
+        "feature2": "Free & Paid Options",
+        "feature3": "Personalized Results",
+        "start": "Start Quiz"
+    },
+    "step1": {
+        "title": "What do you want to use AI for?",
+        "subtitle": "Choose your main objective"
+    },
+    "step2": {
+        "title": "What's your budget preference?",
+        "subtitle": "Choose your preferred pricing model"
+    },
+    "results": {
+        "title": "Your Recommended AI Tools",
+        "subtitle": "Based on your preferences, here are the best tools for you",
+        "restart": "🔄 Take Quiz Again",
+        "visit": "Visit Website",
+        "rank": "Rank",
+        "traffic": "Monthly Visits",
+        "free_plan": "Free Plan Available",
+        "paid_plan": "Paid Plan",
+        "price": "Price"
+    },
+    "common": {
+        "back": "← Back",
+        "next": "Next →",
+        "loading": "Loading..."
+    },
+    "progress": {
+        "step": "Step {{current}} of {{total}}"
+    }
+}
