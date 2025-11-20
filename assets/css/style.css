@@ -65,18 +65,25 @@ body {
     text-align: center;
 }
 
-/* Ad Spaces */
-.ad-banner-top,
-.ad-banner,
-.ad-native {
+/* Ad Spaces - YMonetize */
+.ad-slot {
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     margin: 1.5rem auto;
     min-height: 100px;
-    background: var(--surface-light);
-    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px dashed var(--border-color);
+}
+
+/* Remover borda de debug em produção */
+.ad-slot:empty {
+    background: transparent;
+    border: none;
+    min-height: 50px;
 }
 
 .sidebar-ad {
@@ -454,9 +461,8 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .ad-banner-top,
-    .ad-banner {
-        min-height: 120px;
+    .ad-slot {
+        margin: 2rem auto;
     }
 }
 
@@ -484,11 +490,15 @@ body {
         position: fixed;
         right: 20px;
         top: 150px;
-        width: 300px;
+        width: 320px;
         min-height: 600px;
-        background: var(--surface-light);
-        border-radius: 8px;
-        border: 1px dashed var(--border-color);
+        z-index: 50;
+    }
+    
+    .sidebar-ad .ad-slot {
+        position: static;
+        transform: none;
+        left: auto;
     }
 
     .quiz-container {

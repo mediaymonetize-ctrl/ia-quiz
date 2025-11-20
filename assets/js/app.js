@@ -244,11 +244,30 @@ const quizApp = {
             container.appendChild(card);
             
             // Add native ad after 2nd and 4th tool
-            if (index === 1 || index === 3) {
+            if (index === 1) {
                 const adSpace = document.createElement('div');
-                adSpace.className = 'ad-native';
+                adSpace.className = 'ad-slot';
+                adSpace.id = 'b8';
                 adSpace.style.gridColumn = 'span 1';
                 container.appendChild(adSpace);
+                
+                // Inicializar anúncio se a função estiver disponível
+                if (typeof window.reinitializeAds === 'function') {
+                    setTimeout(() => window.reinitializeAds(), 100);
+                }
+            }
+            
+            if (index === 3) {
+                const adSpace = document.createElement('div');
+                adSpace.className = 'ad-slot';
+                adSpace.id = 'b9';
+                adSpace.style.gridColumn = 'span 1';
+                container.appendChild(adSpace);
+                
+                // Inicializar anúncio se a função estiver disponível
+                if (typeof window.reinitializeAds === 'function') {
+                    setTimeout(() => window.reinitializeAds(), 100);
+                }
             }
         });
     }
