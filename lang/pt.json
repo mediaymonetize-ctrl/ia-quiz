@@ -20,11 +20,23 @@
         "subtitle": "Com base em suas preferências, aqui estão as melhores ferramentas para você",
         "restart": "🔄 Fazer Quiz Novamente",
         "visit": "Visitar Site",
+        "learn_more": "Saiba Mais",
         "rank": "Ranking",
         "traffic": "Visitas Mensais",
         "free_plan": "Plano Gratuito Disponível",
         "paid_plan": "Plano Pago",
         "price": "Preço"
+    },
+    "modal": {
+        "about": "Sobre esta ferramenta",
+        "key_features": "Principais Recursos",
+        "stats": "Estatísticas e Informações",
+        "global_rank": "Ranking Global",
+        "monthly_traffic": "Tráfego Mensal",
+        "pricing": "Preços",
+        "user_reviews": "Avaliações de Usuários",
+        "close": "Fechar",
+        "visit_website": "Visitar Site"
     },
     "common": {
         "back": "← Voltar",

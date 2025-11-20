@@ -20,11 +20,23 @@
         "subtitle": "Based on your preferences, here are the best tools for you",
         "restart": "🔄 Take Quiz Again",
         "visit": "Visit Website",
+        "learn_more": "Learn More",
         "rank": "Rank",
         "traffic": "Monthly Visits",
         "free_plan": "Free Plan Available",
         "paid_plan": "Paid Plan",
         "price": "Price"
+    },
+    "modal": {
+        "about": "About this tool",
+        "key_features": "Key Features",
+        "stats": "Stats & Info",
+        "global_rank": "Global Rank",
+        "monthly_traffic": "Monthly Traffic",
+        "pricing": "Pricing",
+        "user_reviews": "User Reviews",
+        "close": "Close",
+        "visit_website": "Visit Website"
     },
     "common": {
         "back": "← Back",

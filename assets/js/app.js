@@ -260,61 +260,12 @@ const quizApp = {
                     ${tool.traffic !== 'N/A' ? `<span>📊 ${tool.traffic}</span>` : ''}
                     ${tool.price ? `<span>💰 ${tool.price}</span>` : ''}
                 </div>
-                <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="tool-link">
-                    ${i18n.t('results.visit')} →
-                </a>
+                <button class="tool-link" onclick="openToolModal('${tool.id}')">
+                    ${i18n.t('results.learn_more')} →
+                </button>
             `;
             
             container.appendChild(card);
-            
-            // Add native ads strategically among results (after positions 2, 5, 8, 11)
-            if (index === 1) { // After 2nd tool
-                const adSpace = document.createElement('div');
-                adSpace.className = 'ad-slot';
-                adSpace.id = 'b8';
-                adSpace.style.gridColumn = 'span 1';
-                container.appendChild(adSpace);
-                
-                if (typeof window.reinitializeAds === 'function') {
-                    setTimeout(() => window.reinitializeAds(), 100);
-                }
-            }
-            
-            if (index === 4) { // After 5th tool
-                const adSpace = document.createElement('div');
-                adSpace.className = 'ad-slot';
-                adSpace.id = 'b9';
-                adSpace.style.gridColumn = 'span 1';
-                container.appendChild(adSpace);
-                
-                if (typeof window.reinitializeAds === 'function') {
-                    setTimeout(() => window.reinitializeAds(), 100);
-                }
-            }
-            
-            if (index === 7) { // After 8th tool
-                const adSpace = document.createElement('div');
-                adSpace.className = 'ad-slot';
-                adSpace.id = 'b10';
-                adSpace.style.gridColumn = 'span 1';
-                container.appendChild(adSpace);
-                
-                if (typeof window.reinitializeAds === 'function') {
-                    setTimeout(() => window.reinitializeAds(), 100);
-                }
-            }
-            
-            if (index === 10) { // After 11th tool
-                const adSpace = document.createElement('div');
-                adSpace.className = 'ad-slot';
-                adSpace.id = 'b11';
-                adSpace.style.gridColumn = 'span 1';
-                container.appendChild(adSpace);
-                
-                if (typeof window.reinitializeAds === 'function') {
-                    setTimeout(() => window.reinitializeAds(), 100);
-                }
-            }
         });
     },
     
@@ -367,3 +318,316 @@ function restartQuiz() {
 document.addEventListener('DOMContentLoaded', () => {
     quizApp.init();
 });
+
+
+// Modal Functions
+function openToolModal(toolId) {
+    const tool = aiToolsDatabase.find(t => t.id === toolId);
+    if (!tool) return;
+    
+    const lang = i18n.currentLang;
+    const modal = document.getElementById('toolModal');
+    
+    // Populate modal content
+    document.getElementById('modalToolName').textContent = tool.name;
+    document.getElementById('modalDescription').textContent = tool.description[lang];
+    
+    // Badge
+    const badge = document.getElementById('modalToolBadge');
+    badge.className = 'modal-tool-badge';
+    if (tool.pricing === 'free') {
+        badge.className += ' badge-free';
+        badge.textContent = 'FREE';
+    } else if (tool.pricing === 'freemium') {
+        badge.className += ' badge-freemium';
+        badge.textContent = 'FREEMIUM';
+    } else {
+        badge.className += ' badge-paid';
+        badge.textContent = 'PAID';
+    }
+    
+    // Features
+    const features = getToolFeatures(tool, lang);
+    const featuresList = document.getElementById('modalFeatures');
+    featuresList.innerHTML = features.map(f => `<li>${f}</li>`).join('');
+    
+    // Stats
+    document.getElementById('modalRankValue').textContent = tool.rank > 0 ? `#${tool.rank}` : 'N/A';
+    document.getElementById('modalTrafficValue').textContent = tool.traffic || 'N/A';
+    document.getElementById('modalPriceValue').textContent = tool.price || (tool.pricing === 'free' ? 'Free' : 'Varies');
+    
+    // Reviews
+    const review = getToolReview(tool, lang);
+    document.getElementById('modalReviewText').textContent = review;
+    
+    // Visit button
+    document.getElementById('modalVisitBtn').href = tool.url;
+    
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeToolModal() {
+    const modal = document.getElementById('toolModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(e) {
+    const modal = document.getElementById('toolModal');
+    if (e.target === modal) {
+        closeToolModal();
+    }
+});
+
+// Close modal with ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeToolModal();
+    }
+});
+
+// Get tool features based on category
+function getToolFeatures(tool, lang) {
+    const categoryFeatures = {
+        'assistant': {
+            'en': [
+                'Natural language conversations',
+                'Context-aware responses',
+                'Multi-turn dialogue support',
+                'Knowledge base integration'
+            ],
+            'pt': [
+                'Conversas em linguagem natural',
+                'Respostas contextualizadas',
+                'Suporte a diálogos múltiplos',
+                'Integração com base de conhecimento'
+            ],
+            'es': [
+                'Conversaciones en lenguaje natural',
+                'Respuestas contextuales',
+                'Soporte de diálogo múltiple',
+                'Integración de base de conocimientos'
+            ]
+        },
+        'programming': {
+            'en': [
+                'Code generation and completion',
+                'Multi-language support',
+                'Bug detection and fixes',
+                'Code explanation and documentation'
+            ],
+            'pt': [
+                'Geração e completação de código',
+                'Suporte multi-linguagem',
+                'Detecção e correção de bugs',
+                'Explicação e documentação de código'
+            ],
+            'es': [
+                'Generación y completación de código',
+                'Soporte multi-idioma',
+                'Detección y corrección de errores',
+                'Explicación y documentación de código'
+            ]
+        },
+        'writing': {
+            'en': [
+                'Grammar and spelling check',
+                'Style and tone suggestions',
+                'Content generation',
+                'Plagiarism detection'
+            ],
+            'pt': [
+                'Verificação gramatical e ortográfica',
+                'Sugestões de estilo e tom',
+                'Geração de conteúdo',
+                'Detecção de plágio'
+            ],
+            'es': [
+                'Verificación gramatical y ortográfica',
+                'Sugerencias de estilo y tono',
+                'Generación de contenido',
+                'Detección de plagio'
+            ]
+        },
+        'design': {
+            'en': [
+                'AI-powered image generation',
+                'Style transfer and editing',
+                'High-resolution output',
+                'Multiple format support'
+            ],
+            'pt': [
+                'Geração de imagens com IA',
+                'Transferência e edição de estilo',
+                'Saída em alta resolução',
+                'Suporte a múltiplos formatos'
+            ],
+            'es': [
+                'Generación de imágenes con IA',
+                'Transferencia y edición de estilo',
+                'Salida de alta resolución',
+                'Soporte de múltiples formatos'
+            ]
+        },
+        'video': {
+            'en': [
+                'AI video generation',
+                'Automated editing',
+                'Text-to-video conversion',
+                'Effects and transitions'
+            ],
+            'pt': [
+                'Geração de vídeo com IA',
+                'Edição automatizada',
+                'Conversão texto para vídeo',
+                'Efeitos e transições'
+            ],
+            'es': [
+                'Generación de video con IA',
+                'Edición automatizada',
+                'Conversión de texto a video',
+                'Efectos y transiciones'
+            ]
+        },
+        'audio': {
+            'en': [
+                'AI voice synthesis',
+                'Music generation',
+                'Audio enhancement',
+                'Multiple voice options'
+            ],
+            'pt': [
+                'Síntese de voz com IA',
+                'Geração de música',
+                'Aprimoramento de áudio',
+                'Múltiplas opções de voz'
+            ],
+            'es': [
+                'Síntesis de voz con IA',
+                'Generación de música',
+                'Mejora de audio',
+                'Múltiples opciones de voz'
+            ]
+        },
+        'productivity': {
+            'en': [
+                'Task automation',
+                'Workflow optimization',
+                'Team collaboration',
+                'Integration with popular tools'
+            ],
+            'pt': [
+                'Automação de tarefas',
+                'Otimização de fluxo de trabalho',
+                'Colaboração em equipe',
+                'Integração com ferramentas populares'
+            ],
+            'es': [
+                'Automatización de tareas',
+                'Optimización del flujo de trabajo',
+                'Colaboración en equipo',
+                'Integración con herramientas populares'
+            ]
+        },
+        'research': {
+            'en': [
+                'AI-powered search',
+                'Source citation',
+                'Summary generation',
+                'Real-time information'
+            ],
+            'pt': [
+                'Busca com IA',
+                'Citação de fontes',
+                'Geração de resumos',
+                'Informações em tempo real'
+            ],
+            'es': [
+                'Búsqueda con IA',
+                'Citación de fuentes',
+                'Generación de resúmenes',
+                'Información en tiempo real'
+            ]
+        },
+        'marketing': {
+            'en': [
+                'Content creation',
+                'SEO optimization',
+                'Social media management',
+                'Analytics and insights'
+            ],
+            'pt': [
+                'Criação de conteúdo',
+                'Otimização SEO',
+                'Gestão de redes sociais',
+                'Análises e insights'
+            ],
+            'es': [
+                'Creación de contenido',
+                'Optimización SEO',
+                'Gestión de redes sociales',
+                'Análisis e insights'
+            ]
+        },
+        'translation': {
+            'en': [
+                'Neural machine translation',
+                'Multiple language support',
+                'Context-aware translation',
+                'Document translation'
+            ],
+            'pt': [
+                'Tradução automática neural',
+                'Suporte a múltiplos idiomas',
+                'Tradução contextual',
+                'Tradução de documentos'
+            ],
+            'es': [
+                'Traducción automática neural',
+                'Soporte de múltiples idiomas',
+                'Traducción contextual',
+                'Traducción de documentos'
+            ]
+        }
+    };
+    
+    return categoryFeatures[tool.category]?.[lang] || categoryFeatures['assistant'][lang];
+}
+
+// Get tool review based on rank and traffic
+function getToolReview(tool, lang) {
+    const reviews = {
+        'en': {
+            'top': 'Highly rated by millions of users worldwide. Industry-leading tool with exceptional performance and reliability.',
+            'popular': 'Popular choice among professionals. Consistently delivers quality results with great user experience.',
+            'good': 'Well-regarded tool with positive user feedback. Offers solid features and good value for money.',
+            'emerging': 'Growing tool with promising features. Users appreciate its innovative approach and ease of use.'
+        },
+        'pt': {
+            'top': 'Altamente avaliado por milhões de usuários em todo o mundo. Ferramenta líder do setor com desempenho e confiabilidade excepcionais.',
+            'popular': 'Escolha popular entre profissionais. Entrega consistentemente resultados de qualidade com ótima experiência do usuário.',
+            'good': 'Ferramenta bem conceituada com feedback positivo dos usuários. Oferece recursos sólidos e bom custo-benefício.',
+            'emerging': 'Ferramenta em crescimento com recursos promissores. Usuários apreciam sua abordagem inovadora e facilidade de uso.'
+        },
+        'es': {
+            'top': 'Altamente calificado por millones de usuarios en todo el mundo. Herramienta líder en la industria con rendimiento y confiabilidad excepcionales.',
+            'popular': 'Elección popular entre profesionales. Ofrece consistentemente resultados de calidad con gran experiencia de usuario.',
+            'good': 'Herramienta bien considerada con comentarios positivos de los usuarios. Ofrece características sólidas y buena relación calidad-precio.',
+            'emerging': 'Herramienta en crecimiento con características prometedoras. Los usuarios aprecian su enfoque innovador y facilidad de uso.'
+        }
+    };
+    
+    let category = 'emerging';
+    if (tool.rank > 0 && tool.rank <= 20) {
+        category = 'top';
+    } else if (tool.rank > 20 && tool.rank <= 50) {
+        category = 'popular';
+    } else if (tool.rank > 50 || quizApp.parseTraffic(tool.traffic) > 5000000) {
+        category = 'good';
+    }
+    
+    return reviews[lang][category];
+}
