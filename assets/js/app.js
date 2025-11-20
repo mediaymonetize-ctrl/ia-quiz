@@ -163,7 +163,7 @@ const quizApp = {
         const container = document.getElementById('resultsContainer');
         if (!container) return;
         
-        // Filter tools based on selections
+        // Step 1: Filter tools based on category and pricing
         let filteredTools = aiToolsDatabase.filter(tool => {
             // Filter by category
             if (tool.category !== this.selectedCategory) {
@@ -182,15 +182,39 @@ const quizApp = {
             return true;
         });
         
-        // Sort by rank (lower is better, 0 means no rank)
-        filteredTools.sort((a, b) => {
-            if (a.rank === 0) return 1;
-            if (b.rank === 0) return -1;
-            return a.rank - b.rank;
+        // Step 2: Remove duplicates by ID (using Set for O(1) lookup)
+        const seenIds = new Set();
+        filteredTools = filteredTools.filter(tool => {
+            if (seenIds.has(tool.id)) {
+                return false; // Skip duplicate
+            }
+            seenIds.add(tool.id);
+            return true;
         });
         
-        // Limit to top 6 results
-        filteredTools = filteredTools.slice(0, 6);
+        // Step 3: Sort by rank (lower is better) and traffic
+        filteredTools.sort((a, b) => {
+            // Prioritize tools with rank
+            const aHasRank = a.rank && a.rank > 0;
+            const bHasRank = b.rank && b.rank > 0;
+            
+            if (aHasRank && !bHasRank) return -1;
+            if (!aHasRank && bHasRank) return 1;
+            
+            // Both have rank - compare
+            if (aHasRank && bHasRank) {
+                return a.rank - b.rank;
+            }
+            
+            // Neither has rank - sort by traffic
+            const aTraffic = this.parseTraffic(a.traffic);
+            const bTraffic = this.parseTraffic(b.traffic);
+            return bTraffic - aTraffic; // Higher traffic first
+        });
+        
+        // Step 4: Limit to top 15 results (increased from 6)
+        const maxResults = 15;
+        filteredTools = filteredTools.slice(0, maxResults);
         
         // Clear container
         container.innerHTML = '';
@@ -243,33 +267,78 @@ const quizApp = {
             
             container.appendChild(card);
             
-            // Add native ad after 2nd and 4th tool
-            if (index === 1) {
+            // Add native ads strategically among results (after positions 2, 5, 8, 11)
+            if (index === 1) { // After 2nd tool
                 const adSpace = document.createElement('div');
                 adSpace.className = 'ad-slot';
                 adSpace.id = 'b8';
                 adSpace.style.gridColumn = 'span 1';
                 container.appendChild(adSpace);
                 
-                // Inicializar anúncio se a função estiver disponível
                 if (typeof window.reinitializeAds === 'function') {
                     setTimeout(() => window.reinitializeAds(), 100);
                 }
             }
             
-            if (index === 3) {
+            if (index === 4) { // After 5th tool
                 const adSpace = document.createElement('div');
                 adSpace.className = 'ad-slot';
                 adSpace.id = 'b9';
                 adSpace.style.gridColumn = 'span 1';
                 container.appendChild(adSpace);
                 
-                // Inicializar anúncio se a função estiver disponível
+                if (typeof window.reinitializeAds === 'function') {
+                    setTimeout(() => window.reinitializeAds(), 100);
+                }
+            }
+            
+            if (index === 7) { // After 8th tool
+                const adSpace = document.createElement('div');
+                adSpace.className = 'ad-slot';
+                adSpace.id = 'b10';
+                adSpace.style.gridColumn = 'span 1';
+                container.appendChild(adSpace);
+                
+                if (typeof window.reinitializeAds === 'function') {
+                    setTimeout(() => window.reinitializeAds(), 100);
+                }
+            }
+            
+            if (index === 10) { // After 11th tool
+                const adSpace = document.createElement('div');
+                adSpace.className = 'ad-slot';
+                adSpace.id = 'b11';
+                adSpace.style.gridColumn = 'span 1';
+                container.appendChild(adSpace);
+                
                 if (typeof window.reinitializeAds === 'function') {
                     setTimeout(() => window.reinitializeAds(), 100);
                 }
             }
         });
+    },
+    
+    // Helper function to parse traffic string to number for sorting
+    parseTraffic(traffic) {
+        if (!traffic || traffic === 'N/A') return 0;
+        
+        // Remove spaces and convert to uppercase
+        const cleaned = traffic.replace(/\s/g, '').toUpperCase();
+        
+        // Extract number and multiplier
+        const match = cleaned.match(/([0-9.]+)([KMB]?)/);
+        if (!match) return 0;
+        
+        const num = parseFloat(match[1]);
+        const multiplier = match[2];
+        
+        // Convert to actual number
+        switch(multiplier) {
+            case 'K': return num * 1000;
+            case 'M': return num * 1000000;
+            case 'B': return num * 1000000000;
+            default: return num;
+        }
     }
 };
 

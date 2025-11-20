@@ -95,8 +95,10 @@
             ] : baseSizes,
             
             // Native ads dentro dos resultados (criados dinamicamente)
-            'b8': baseSizes,
-            'b9': baseSizes
+            'b8': baseSizes,  // Após 2ª ferramenta
+            'b9': baseSizes,  // Após 5ª ferramenta
+            'b10': baseSizes, // Após 8ª ferramenta
+            'b11': baseSizes  // Após 11ª ferramenta
         };
     }
 
